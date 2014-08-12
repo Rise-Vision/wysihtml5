@@ -7751,7 +7751,7 @@ wysihtml5.Commands = Base.extend(
     },
 
     state: function(composer, command, lineHeight) {
-      return wysihtml5.commands.formatInline.exec(composer, command, "span",
+      return wysihtml5.commands.formatInline.state(composer, command, "span",
         "wysiwyg-line-height-" + lineHeight, REG_EXP);
     }
   };

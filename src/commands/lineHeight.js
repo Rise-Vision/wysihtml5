@@ -1,5 +1,5 @@
 (function(wysihtml5) {
-  var REG_EXP = /wysiwyg-line-height-[0-9a-z]+/g;
+  var REG_EXP = /wysiwyg-line-height-[0-9\-]+/g;
   
   wysihtml5.commands.lineHeight = {
     exec: function(composer, command, lineHeight) {

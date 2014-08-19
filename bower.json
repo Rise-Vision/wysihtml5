@@ -1,0 +1,19 @@
+{
+  "name": "rv-wysihtml5",
+  "version": "0.3.5-rv",
+  "homepage": "https://github.com/Rise-Vision/wysihtml5",
+  "description": "WYSIWYG HTML5 Editor",
+  "keywords": [
+    "wysiwyg",
+    "editor"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "test",
+    "tests"
+  ]
+}

@@ -47,6 +47,7 @@ JS_FILES = src/wysihtml5.js \
   src/commands/alignment.js \
   src/commands/backgroundColor.js \
   src/commands/bold.js \
+  src/commands/clear.js \
   src/commands/createLink.js \
   src/commands/customFont.js \
   src/commands/fontSize.js \

@@ -58,3 +58,7 @@ h2. Contributors
 * "@tiff":https://github.com/tiff
 * "@ingochao":https://github.com/ingochao
 * "@uwe":https://github.com/uwe
+
+**Facilitator**
+
+[Donna Peplinskie](https://github.com/donnapep "Donna Peplinskie")

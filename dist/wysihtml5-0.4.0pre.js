@@ -6867,12 +6867,12 @@ wysihtml5.Commands = Base.extend(
     }
   };
 })(wysihtml5);(function(wysihtml5) {
-  var REG_EXP = /wysiwyg-background-color-[a-z0-9\-]+/g;
+  var REG_EXP = /wysiwyg-background-color-[0-9\-]+/g;
 
   wysihtml5.commands.backgroundColor = {
-    exec: function(composer, command, hexString, rgb, attrs) {
-      var className = "wysiwyg-background-color-" + hexString.replace("#", "")
-        + "-" + rgb.a.toString().replace(".", "-");
+    exec: function(composer, command, rgba, attrs) {
+      var className = "wysiwyg-background-color-" + rgba.r + "-" + rgba.g + "-" +
+        rgba.b + "-" + rgba.a.toString().replace(".", "-");
       var style = document.createElement("style");
       var body = editor.composer.doc.body;
       var classes = body.classList;
@@ -6880,8 +6880,8 @@ wysihtml5.Commands = Base.extend(
       // Add a CSS class for the selected font. Unfortunately, !important is
       // needed to override the inline style.
       style.type = "text/css";
-      style.innerHTML = "." + className + " { background-color: rgba(" + rgb.r
-        + ", " + rgb.g + ", " + rgb.b + ", " + rgb.a + ") !important; }";
+      style.innerHTML = "." + className + " { background-color: rgba(" + rgba.r
+        + ", " + rgba.g + ", " + rgba.b + ", " + rgba.a + ") !important; }";
       composer.iframe.contentDocument.getElementsByTagName("head")[0]
         .appendChild(style);
 
@@ -6899,7 +6899,7 @@ wysihtml5.Commands = Base.extend(
       body.classList.add(className);
     },
 
-    state: function(composer, command, hexString, rgb, attrs) {
+    state: function(composer, command, rgba, attrs) {
     }
   };
 })(wysihtml5);
@@ -7434,18 +7434,18 @@ wysihtml5.commands.clear = {
     }
   };
 })(wysihtml5);(function(wysihtml5) {
-  var REG_EXP = /wysiwyg-highlight-color-[a-z0-9\-]+/g;
+  var REG_EXP = /wysiwyg-highlight-color-[0-9\-]+/g;
 
   wysihtml5.commands.highlightColor = {
-    exec: function(composer, command, hexString, rgb, attrs) {
-      var className = "wysiwyg-highlight-color-" + hexString.replace("#", "")
-        + "-" + rgb.a.toString().replace(".", "-");
+    exec: function(composer, command, rgba, attrs) {
+      var className = "wysiwyg-highlight-color-" + rgba.r + "-" + rgba.g + "-" +
+        rgba.b + "-" + rgba.a.toString().replace(".", "-");
       var style = document.createElement("style");
 
-      // Add a CSS class for the selected font.
+      // Add a CSS class for the selected highlight color.
       style.type = "text/css";
-      style.innerHTML = "." + className +" { background-color: rgba(" + rgb.r
-        + ", " + rgb.g + ", " + rgb.b + ", " + rgb.a + "); }";
+      style.innerHTML = "." + className +" { background-color: rgba(" + rgba.r
+        + ", " + rgba.g + ", " + rgba.b + ", " + rgba.a + "); }";
       composer.iframe.contentDocument.getElementsByTagName("head")[0]
         .appendChild(style);
 
@@ -7453,9 +7453,9 @@ wysihtml5.commands.clear = {
         className, REG_EXP, attrs);
     },
 
-    state: function(composer, command, hexString, rgb, attrs) {
-      var className = "wysiwyg-highlight-color-" + hexString.replace("#", "")
-        + "-" + rgb.a.toString().replace(".", "-");
+    state: function(composer, command, rgba, attrs) {
+      var className = "wysiwyg-highlight-color-" + rgba.r + "-" + rgba.g + "-" +
+        rgba.b + "-" + rgba.a.toString().replace(".", "-");
 
       return wysihtml5.commands.formatInline.state(composer, command, "span",
         className, REG_EXP, attrs);
@@ -7807,18 +7807,18 @@ wysihtml5.commands.redo = {
     }
   };
 })(wysihtml5);(function(wysihtml5) {
-  var REG_EXP = /wysiwyg-text-color-[a-z0-9\-]+/g;
+  var REG_EXP = /wysiwyg-text-color-[0-9\-]+/g;
 
   wysihtml5.commands.textColor = {
-    exec: function(composer, command, hexString, rgb, attrs) {
-      var className = "wysiwyg-text-color-" + hexString.replace("#", "") + "-" +
-        rgb.a.toString().replace(".", "-");
+    exec: function(composer, command, rgba, attrs) {
+      var className = "wysiwyg-text-color-" + rgba.r + "-" + rgba.g + "-" +
+        rgba.b + "-" + rgba.a.toString().replace(".", "-");
       var style = document.createElement("style");
 
-      // Add a CSS class for the selected font.
+      // Add a CSS class for the selected text color.
       style.type = "text/css";
-      style.innerHTML = "." + className +" { color: rgba(" + rgb.r + ", " +
-        rgb.g + ", " + rgb.b + ", " + rgb.a + "); }";
+      style.innerHTML = "." + className +" { color: rgba(" + rgba.r + ", " +
+        rgba.g + ", " + rgba.b + ", " + rgba.a + "); }";
       composer.iframe.contentDocument.getElementsByTagName("head")[0]
         .appendChild(style);
 
@@ -7826,9 +7826,9 @@ wysihtml5.commands.redo = {
         className, REG_EXP, attrs);
     },
 
-    state: function(composer, command, hexString, rgb, attrs) {
-      var className = "wysiwyg-text-color-" + hexString.replace("#", "") + "-" +
-        rgb.a.toString().replace(".", "-");
+    state: function(composer, command, rgba, attrs) {
+      var className = "wysiwyg-text-color-" + rgba.r + "-" + rgba.g + "-" +
+        rgba.b + "-" + rgba.a.toString().replace(".", "-");
 
       return wysihtml5.commands.formatInline.state(composer, command, "span",
         className, REG_EXP, attrs);

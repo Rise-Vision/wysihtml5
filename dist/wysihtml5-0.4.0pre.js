@@ -6596,6 +6596,20 @@ wysihtml5.quirks.ensureProperClearing = (function() {
         /* Donna End */
       } else {
         var el = this.createContainer(rangy.dom.getDocument(textNode));
+
+        /* Donna Start - Remove any line breaks that immediately follow a div that
+           is added to the editor, since it's a block-level element that makes
+           the line break obsolete and just creates unnecessary whitespace.
+        */
+        if (this.tagNames[0] === "div" && textNode.nextSibling) {
+          var nextSibling = textNode.nextSibling;
+
+          if ((nextSibling.nodeType === 1) && (nextSibling.nodeName.toLowerCase() === "br")) {
+            textNode.parentNode.removeChild(nextSibling);
+          }
+        }
+        /* Donna End */
+
         textNode.parentNode.insertBefore(el, textNode);
         el.appendChild(textNode);
       }
@@ -6758,7 +6772,8 @@ wysihtml5.quirks.ensureProperClearing = (function() {
 
   wysihtml5.selection.HTMLApplier = HTMLApplier;
 
-})(wysihtml5, rangy);/**
+})(wysihtml5, rangy);
+/**
  * Rich Text Query/Formatting Commands
  * 
  * @example

@@ -1,0 +1,9 @@
+deployment:
+  staging:
+    branch: /(feature|fix|chore).*/
+    commands:
+      - make
+  production:
+    branch: master
+    commands:
+      - make

@@ -1,4 +1,4 @@
-h1. wysihtml5 0.3.0
+h1. wysihtml5 0.3.0 !https://circleci.com/gh/Rise-Vision/wysihtml5/tree/master.svg?style=svg(Circle CI)!:https://circleci.com/gh/Rise-Vision/wysihtml5/tree/master
 
 wysihtml5 is an open source rich text editor based on HTML5 technology and the progressive-enhancement approach.
 It uses a sophisticated security concept and aims to generate fully valid HTML5 markup by preventing unmaintainable tag soups and inline styles.
@@ -61,4 +61,4 @@ h2. Contributors
 
 **Facilitator**
 
-[Donna Peplinskie](https://github.com/donnapep "Donna Peplinskie")
+"Donna Peplinskie":https://github.com/donnapep
